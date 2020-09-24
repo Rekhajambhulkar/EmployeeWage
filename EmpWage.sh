@@ -4,6 +4,7 @@ echo "Welcome"
 
 #CONSTANTS
 IS_FULL_TIME=2
+IS_PART_TIME=1
 EMP_RATE_PER_HR=20
 
 isPresent=1
