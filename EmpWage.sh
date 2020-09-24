@@ -3,10 +3,16 @@
 echo "Welcome"
 
 #CONSTANTS
-IS_FULL_TIME=2
-IS_PART_TIME=1
-MAX_WORKING_DAYS=20;
-EMP_RATE_PER_HR=20
+EMP_RATE_PER_HR=100;
+IS_FULL_TIME=2;
+IS_PART_TIME=1;
+MAX_WORKING_DAYS=2;
+MAX_WORKING_HRS=100
+
+#variables
+declare -i workDonePerDay
+totalWorkingDays=0;
+totalWorkingHrs=0;
 
 isPresent=1
 randomCheck=$((RANDOM%2))
