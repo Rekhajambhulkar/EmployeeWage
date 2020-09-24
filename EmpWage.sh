@@ -50,3 +50,4 @@ workDonePerDay[$totalWorkingDays]=$resWorkDonePerDay;
 done
 
 echo "Total working Hours : " $totalWorkingHrs
+echo "Total Work day:" ${workDonePerDay[@]}
