@@ -4,9 +4,9 @@ echo "Welcome"
 
 #CONSTANTS
 EMP_RATE_PER_HR=100;
-IS_FULL_TIME=2;
-IS_PART_TIME=1;
-MAX_WORKING_DAYS=2;
+IS_FULL_TIME=1;
+IS_PART_TIME=2;
+MAX_WORKING_DAYS=20;
 MAX_WORKING_HRS=100
 
 #variables
@@ -24,14 +24,29 @@ else
 	echo "Employee is Abscent"
 fi
 
-case $randomcheck in
-	1) $IS_FULL_TIME
-		workHrs=8
-		;;
-	2) $IS_PART_TIME
-		workHrs=4
-		;;
-	*)
-		workHrs=0
-		;;
-esac
+function getWorkHours()
+{
+case $1 in 
+	1) workHrs=8;;
+	2) workHrs=4;;
+	*) workhrs=0;;
+	esac
+	echo $workHrs;
+}
+
+while [[ $totalWorkingHrs -lt $MAX_WORKING_HRS && 
+	$totalWorkingDays -lt $MAX_WORKING_DAYS ]]
+do
+
+((totalWorkingDays++));
+resWorkDonePerDay=$( getWorkHours $((RANDOM%3)) );
+
+#adding up total working hours
+totalWorkingHrs=$(( totalWorkingHrs + resWorkDonePerDay ));
+
+#getting store per day work hours in Dictionary
+workDonePerDay[$totalWorkingDays]=$resWorkDonePerDay;
+
+done
+
+echo "Total working Hours : " $totalWorkingHrs
